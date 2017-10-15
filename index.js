@@ -14,7 +14,6 @@ import {
   Util,
 } from 'react-native-router-flux';
 import {observer} from "mobx-react/native"
-import {autorunAsync, autorun} from 'mobx';
 import {InteractionManager} from 'react-native';
 
 const handlers = {};
@@ -46,7 +45,7 @@ Actions.iterate = (root: Scene, parentProps = {}, refsParam = {}, wrapBy) => {
   }
   addHandler(root);
   list.forEach(addHandler);
-  
+
   return originalIterate({...root, props: {...root.props, type}}, parentProps, refsParam, wrapBy);
 }
 
